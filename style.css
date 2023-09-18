@@ -2,7 +2,7 @@
 .color-pallets-container{
     display: flex;
     flex-direction: column;
-    width:1000px;
+    width:1200px;
 
 }
 .color-pallet-outer{
@@ -11,6 +11,7 @@
     height:50px;
     margin-top: 10px;
     justify-content: space-between;
+    align-items: center;
 }
 .color-block{
     height:100%;
@@ -20,4 +21,18 @@
     margin-right: 2px;
     padding: 0.1px;
     background: blueviolet;
+}
+
+.delete-pallet-outer{
+    font-size: 20px;
+    width: 25px;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 100%;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    margin-left: 10px;
 }

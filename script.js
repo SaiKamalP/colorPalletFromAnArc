@@ -30,7 +30,7 @@ function generatePallet(){
    var hexCode=document.querySelector("#hex").value;
    const rgbFromHex=hexToRgb(hexCode);
    const hsvFromRgb=rgbToHsv(rgbFromHex.r,rgbFromHex.g,rgbFromHex.b);
-   const is_greyScale=false;
+   var is_greyScale=false;
    if(rgbFromHex.r==rgbFromHex.g && rgbFromHex.r==rgbFromHex.b){
     is_greyScale=true;
    }
@@ -60,7 +60,9 @@ function generatePallet(){
 
         }
         const vv=c*sv;
-        
+        if(is_greyScale){
+          sv=0;
+        }
         const correspondingRGB=HSVtoRGB(hsvFromRgb.h,sv,vv);
         const newColor=document.createElement('div');
         newColor.className="color-block";
@@ -68,7 +70,14 @@ function generatePallet(){
         newPallet.appendChild(newColor);
     }
     newPallet.style.order=-palletNumber;
+    const deletePalletBtn=document.createElement('div');
+    deletePalletBtn.className="delete-pallet-outer";
+    deletePalletBtn.innerHTML="x";
+    newPallet.appendChild(deletePalletBtn);
     document.querySelector('.color-pallets-container').appendChild(newPallet);
+    deletePalletBtn.addEventListener('click',function(){
+      newPallet.remove();
+    });
     palletNumber++;
 }
 function generateRectangleColorPallet(){
